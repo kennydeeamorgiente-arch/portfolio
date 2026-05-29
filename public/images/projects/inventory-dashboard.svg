@@ -1,0 +1,14 @@
+<svg width="900" height="620" viewBox="0 0 900 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="620" fill="#FFFAF2"/>
+  <rect x="48" y="48" width="804" height="524" rx="18" fill="#211F1B"/>
+  <rect x="84" y="92" width="230" height="62" rx="10" fill="#245B50"/>
+  <rect x="338" y="92" width="180" height="62" rx="10" fill="#A04935"/>
+  <rect x="542" y="92" width="274" height="62" rx="10" fill="#E6D7B8"/>
+  <rect x="84" y="202" width="350" height="278" rx="14" fill="#F8F4EC"/>
+  <rect x="470" y="202" width="346" height="278" rx="14" fill="#F8F4EC"/>
+  <path d="M126 417L190 346L252 386L324 286L392 344" stroke="#245B50" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="518" y="254" width="250" height="28" rx="8" fill="#245B50"/>
+  <rect x="518" y="320" width="190" height="28" rx="8" fill="#A04935"/>
+  <rect x="518" y="386" width="224" height="28" rx="8" fill="#E6D7B8"/>
+  <text x="84" y="536" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#FFFAF2">Inventory Dashboard</text>
+</svg>

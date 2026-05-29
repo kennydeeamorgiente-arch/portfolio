@@ -1,0 +1,7 @@
+<svg width="820" height="920" viewBox="0 0 820 920" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="820" height="920" fill="#245B50"/>
+  <rect x="70" y="70" width="680" height="780" rx="24" fill="#FFFAF2"/>
+  <circle cx="410" cy="330" r="135" fill="#A04935"/>
+  <path d="M194 736C226 610 304 538 410 538C516 538 594 610 626 736H194Z" fill="#211F1B"/>
+  <text x="410" y="812" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700" fill="#245B50">DLP</text>
+</svg>
