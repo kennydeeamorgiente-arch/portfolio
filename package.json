@@ -4,9 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:log": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/run-with-log.ps1 dev",
     "build": "next build",
+    "build:log": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/run-with-log.ps1 build",
     "start": "next start",
-    "lint": "eslint"
+    "start:log": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/run-with-log.ps1 start",
+    "lint": "eslint",
+    "lint:log": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/run-with-log.ps1 lint"
   },
   "dependencies": {
     "@supabase/ssr": "^0.10.3",
