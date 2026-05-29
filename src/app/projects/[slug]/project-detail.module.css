@@ -1,0 +1,105 @@
+.projectDetailPage {
+  min-height: 100vh;
+  background: var(--bg1);
+  padding-top: 5rem;
+}
+
+.projectDetailHero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 3rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+
+.projectDetailHero h1 {
+  max-width: 48rem;
+  margin: 0;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.projectDetailHero p:not(:global(.eyebrow)) {
+  max-width: 42rem;
+  margin: 1.25rem 0 0;
+  color: var(--text2);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.proofWindow {
+  overflow: hidden;
+  background: var(--bg3);
+}
+
+.projectDetailImage,
+.projectProofSection .proofWindow {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.caseCardImage {
+  width: 100%;
+  height: 100%;
+  min-height: 15rem;
+  object-fit: cover;
+}
+
+.projectEvidenceGrid,
+.projectProofGrid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.projectEvidenceGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.evidenceCard {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg2);
+  padding: 1.5rem;
+}
+
+.evidenceCard h2,
+.projectStackSection h2,
+.projectProofSection h2 {
+  margin: 0;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  font-weight: 700;
+}
+
+.evidenceCard p {
+  margin: 0.85rem 0 0;
+  color: var(--text2);
+  line-height: 1.7;
+}
+
+.projectStackSection,
+.projectProofSection {
+  margin-top: 3rem;
+}
+
+.projectStackSection :global(.tag-row) {
+  margin-top: 1.25rem;
+}
+
+.projectProofGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 768px) {
+  .projectDetailHero,
+  .projectEvidenceGrid,
+  .projectProofGrid {
+    grid-template-columns: 1fr;
+  }
+}

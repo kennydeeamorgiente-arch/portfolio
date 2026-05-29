@@ -1,0 +1,61 @@
+.archivePage {
+  min-height: 100vh;
+  background: var(--bg1);
+  padding-top: 5rem;
+}
+
+.archiveShell {
+  width: min(100%, 72rem);
+  margin: 0 auto;
+  padding: 4rem clamp(1.25rem, 5vw, 2rem);
+}
+
+.archiveHeading {
+  margin-bottom: 2rem;
+}
+
+.archiveHeading p {
+  margin: 0;
+  color: var(--maroon);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+.archiveHeading h1 {
+  max-width: 46rem;
+  margin: 0.45rem 0 0;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.archiveHeading span {
+  display: block;
+  max-width: 42rem;
+  margin-top: 1rem;
+  color: var(--text2);
+  line-height: 1.7;
+}
+
+.archiveGrid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .archiveHeading h1 {
+    font-size: 2.55rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .archiveHeading h1 {
+    font-size: 1.7rem;
+    line-height: 1.05;
+  }
+}

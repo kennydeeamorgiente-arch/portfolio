@@ -1,5 +1,6 @@
 import { Reveal } from "@/components/ui/reveal";
 import { education } from "@/content/education";
+import styles from "./education-section.module.css";
 
 const awards = [
   "Graduated Cum Laude, Batch 2026",
@@ -10,7 +11,7 @@ const awards = [
 
 export function EducationSection() {
   return (
-    <section className="education-section" id="education">
+    <section className={styles.educationSection} id="education">
       <div className="section-inner section-pad">
         <Reveal>
           <div className="section-header">
@@ -27,13 +28,13 @@ export function EducationSection() {
           </div>
         </Reveal>
 
-        <div className="education-layout">
+        <div className={styles.educationLayout}>
           <Reveal variant="slide-right">
-            <aside className="awards-card">
+            <aside className={styles.awardsCard}>
               <h3>Awards & Recognition</h3>
-              <div className="award-list">
+              <div className={styles.awardList}>
                 {awards.map((award, index) => (
-                  <div className="award-item" key={award}>
+                  <div className={styles.awardItem} key={award}>
                     <span>{String(index + 1).padStart(2, "0")}</span>
                     <p>{award}</p>
                   </div>
@@ -42,12 +43,12 @@ export function EducationSection() {
             </aside>
           </Reveal>
 
-          <div className="education-card-list">
+          <div className={styles.cardList}>
             {education.map((item, index) => (
               <Reveal delay={220 + index * 80} key={item.program}>
-                <article className="education-card">
-                  <p className="education-period">{item.period}</p>
-                  <p className="education-school">{item.institution}</p>
+                <article className={styles.educationCard}>
+                  <p className={styles.period}>{item.period}</p>
+                  <p className={styles.school}>{item.institution}</p>
                   <h3>{item.program}</h3>
                   <em>{item.focus}</em>
                   <ul>

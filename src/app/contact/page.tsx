@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ContactForm } from "@/components/sections/contact-form";
 import { Reveal } from "@/components/ui/reveal";
 import { profile, socialLinks } from "@/content/site";
+import styles from "./contact-page.module.css";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -10,10 +11,10 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <main className="contact-desk">
-      <div className="section-inner section-pad contact-page-grid">
+    <main className={styles.contactDesk}>
+      <div className={`section-inner section-pad ${styles.contactPageGrid}`}>
         <Reveal>
-          <section className="contact-brief">
+          <section className={styles.contactBrief}>
             <p className="eyebrow">Contact</p>
             <h1>Let&apos;s Work Together</h1>
             <span>
@@ -24,10 +25,10 @@ export default function ContactPage() {
         </Reveal>
 
         <Reveal delay={140} variant="slide-left">
-          <section className="contact-panel">
+          <section className={styles.contactPanel}>
             <ContactForm />
 
-            <div className="contact-meta-grid">
+            <div className={styles.contactMetaGrid}>
               <div>
                 <p>Email</p>
                 <a href={`mailto:${profile.email}`}>{profile.email}</a>
@@ -39,12 +40,12 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="contact-links">
+            <div className={styles.contactLinks}>
               <p>Links</p>
               <div>
                 {socialLinks.map((link) => (
                   <a
-                    className="action-button"
+                    className={styles.actionButton}
                     href={link.href}
                     key={link.label}
                     rel={link.href.startsWith("http") ? "noreferrer" : undefined}

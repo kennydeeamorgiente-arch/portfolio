@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Reveal } from "@/components/ui/reveal";
 import { getProjectBySlug, getProjects } from "@/lib/portfolio-data";
+import styles from "./project-detail.module.css";
 
 type ProjectPageProps = {
   params: Promise<{
@@ -48,13 +49,13 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
   }
 
   return (
-    <main className="project-detail-page">
+    <main className={styles.projectDetailPage}>
       <div className="section-inner section-pad">
         <Link className="btn-ghost" href="/projects">
           Back to projects
         </Link>
 
-        <section className="project-detail-hero">
+        <section className={styles.projectDetailHero}>
           <Reveal>
             <div>
               <p className="eyebrow">
@@ -66,27 +67,27 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
           </Reveal>
 
           <Reveal delay={140} variant="slide-left">
-            <div className="proof-window project-detail-image">
+            <div className={`${styles.proofWindow} ${styles.projectDetailImage}`}>
               <Image
                 src={project.image}
                 alt={`${project.title} main screenshot`}
                 width={960}
                 height={640}
-                className="case-card-image"
+                className={styles.caseCardImage}
                 priority
               />
             </div>
           </Reveal>
         </section>
 
-        <section className="project-evidence-grid">
+        <section className={styles.projectEvidenceGrid}>
           {[
             ["Problem", project.problem],
             ["Solution", project.solution],
             ["Outcome", project.outcome],
           ].map(([title, copy], index) => (
             <Reveal delay={index * 90} key={title} variant="scale">
-              <div className="evidence-card">
+              <div className={styles.evidenceCard}>
                 <h2>{title}</h2>
                 <p>{copy}</p>
               </div>
@@ -95,7 +96,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
         </section>
 
         <Reveal>
-          <section className="project-stack-section">
+          <section className={styles.projectStackSection}>
             <h2>Technology Stack</h2>
             <div className="tag-row">
               {project.stack.map((item) => (
@@ -107,20 +108,20 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
           </section>
         </Reveal>
 
-        <section className="project-proof-section">
+        <section className={styles.projectProofSection}>
           <Reveal>
             <h2>Proof Images</h2>
           </Reveal>
-          <div className="project-proof-grid">
+          <div className={styles.projectProofGrid}>
             {project.proofImages.map((image, index) => (
               <Reveal delay={index * 100} key={image} variant="scale">
-                <div className="proof-window">
+                <div className={styles.proofWindow}>
                   <Image
                     src={image}
                     alt={`${project.title} proof image ${index + 1}`}
                     width={900}
                     height={620}
-                    className="case-card-image"
+                    className={styles.caseCardImage}
                   />
                 </div>
               </Reveal>

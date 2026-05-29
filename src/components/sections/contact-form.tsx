@@ -1,6 +1,7 @@
 "use client";
 
 import { type ChangeEvent, type FormEvent, useState } from "react";
+import styles from "./contact-form.module.css";
 
 type ContactFormFields = {
   name: string;
@@ -81,12 +82,12 @@ export function ContactForm() {
   }
 
   return (
-    <form className="contact-form space-y-5" onSubmit={handleSubmit}>
-      <div className="grid gap-5 sm:grid-cols-2">
-        <label className="block text-sm font-semibold">
+    <form className={styles.form} onSubmit={handleSubmit}>
+      <div className={styles.twoColumn}>
+        <label className={styles.label}>
           Name
           <input
-            className="field-control mt-2 w-full px-4 py-3 text-base outline-none transition"
+            className={styles.field}
             disabled={isSubmitting}
             maxLength={120}
             name="name"
@@ -96,10 +97,10 @@ export function ContactForm() {
             value={fields.name}
           />
         </label>
-        <label className="block text-sm font-semibold">
+        <label className={styles.label}>
           Email
           <input
-            className="field-control mt-2 w-full px-4 py-3 text-base outline-none transition"
+            className={styles.field}
             disabled={isSubmitting}
             maxLength={180}
             name="email"
@@ -110,10 +111,10 @@ export function ContactForm() {
           />
         </label>
       </div>
-      <label className="block text-sm font-semibold">
+      <label className={styles.label}>
         Subject
         <input
-          className="field-control mt-2 w-full px-4 py-3 text-base outline-none transition"
+          className={styles.field}
           disabled={isSubmitting}
           maxLength={160}
           name="subject"
@@ -122,10 +123,10 @@ export function ContactForm() {
           value={fields.subject}
         />
       </label>
-      <label className="block text-sm font-semibold">
+      <label className={styles.label}>
         Message
         <textarea
-          className="field-control mt-2 min-h-40 w-full resize-y px-4 py-3 text-base leading-7 outline-none transition"
+          className={`${styles.field} ${styles.messageField}`}
           disabled={isSubmitting}
           maxLength={2000}
           name="message"
@@ -134,15 +135,15 @@ export function ContactForm() {
           value={fields.message}
         />
       </label>
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+      <div className={styles.actions}>
         <button
-          className="submit-button action-button action-button-primary w-fit px-5 py-3 text-sm font-bold transition disabled:cursor-not-allowed"
+          className={styles.submitButton}
           disabled={isSubmitting}
           type="submit"
         >
           {isSubmitting ? (
             <>
-              <span aria-hidden="true" className="submit-pulse" />
+              <span aria-hidden="true" className={styles.submitPulse} />
               Sending...
             </>
           ) : (
@@ -151,8 +152,8 @@ export function ContactForm() {
         </button>
         {submitState.message ? (
           <p
-            className={`text-sm font-semibold ${
-              submitState.status === "success" ? "text-[#245b50]" : "text-[#a04935]"
+            className={`${styles.status} ${
+              submitState.status === "success" ? styles.success : styles.error
             }`}
             role={submitState.status === "error" ? "alert" : "status"}
           >

@@ -1,0 +1,21 @@
+:root {
+  --bg: #070806;
+  --bg1: #0d0f0b;
+  --bg2: #14170f;
+  --bg3: #1b2117;
+  --bg4: #252c20;
+  --maroon: #91a66e;
+  --maroon-dim: rgba(145, 166, 110, 0.15);
+  --maroon-glow: rgba(145, 166, 110, 0.24);
+  --gold: #dbc477;
+  --gold-dim: rgba(219, 196, 119, 0.12);
+  --gold-glow: rgba(219, 196, 119, 0.22);
+  --text: #eeeade;
+  --text2: #aaa797;
+  --text3: #706e62;
+  --border: rgba(219, 196, 119, 0.08);
+  --border2: rgba(219, 196, 119, 0.17);
+  --font-display: "Syne", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}

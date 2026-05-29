@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import { Reveal } from "@/components/ui/reveal";
 import { skillGroups } from "@/content/skills";
+import styles from "./skills-section.module.css";
 
 const marqueeRows = [
   [
@@ -42,7 +43,7 @@ const marqueeRows = [
 
 export function SkillsSection() {
   return (
-    <section className="skills-section" id="skills">
+    <section className={styles.skillsSection} id="skills">
       <div className="section-inner section-pad">
         <Reveal>
           <div className="section-header">
@@ -59,13 +60,21 @@ export function SkillsSection() {
           </div>
         </Reveal>
 
-        <div className="skill-marquee-full" aria-label="Auto-scrolling technical skills">
+        <div
+          className={styles.marqueeFull}
+          aria-label="Auto-scrolling technical skills"
+        >
           {marqueeRows.map((row, rowIndex) => (
             <div
-              className={`skill-marquee-row ${rowIndex === 1 ? "is-reverse" : ""}`}
+              className={[
+                styles.marqueeRow,
+                rowIndex === 1 ? styles.isReverse : "",
+              ]
+                .filter(Boolean)
+                .join(" ")}
               key={row.join("-")}
             >
-              <div className="skill-marquee-track">
+              <div className={styles.marqueeTrack}>
                 {[...row, ...row].map((skill, index) => (
                   <span key={`${skill}-${index}`}>{skill}</span>
                 ))}
@@ -74,19 +83,24 @@ export function SkillsSection() {
           ))}
         </div>
 
-        <div className="skill-category-grid">
+        <div className={styles.categoryGrid}>
           {skillGroups.map((group, index) => (
-            <Reveal delay={index * 80} key={group.title} variant="scale">
-              <article className="skill-cat">
-                <div className="skill-cat-badge">
+            <Reveal
+              className={styles.skillReveal}
+              delay={index * 80}
+              key={group.title}
+              variant="scale"
+            >
+              <article className={styles.skillCat}>
+                <div className={styles.skillBadge}>
                   <span>{group.signal}</span>
                   <small>{String(index + 1).padStart(2, "0")}</small>
                 </div>
                 <h3>{group.title}</h3>
                 <p>{group.description}</p>
-                <div className="skill-bar" aria-hidden="true">
+                <div className={styles.skillBar} aria-hidden="true">
                   <span
-                    className="skill-bar-fill"
+                    className={styles.skillBarFill}
                     style={
                       {
                         "--bar-width": `${group.barWidth}%`,
@@ -94,9 +108,9 @@ export function SkillsSection() {
                     }
                   />
                 </div>
-                <div className="skill-tag-row">
+                <div className={styles.skillTagRow}>
                   {group.items.map((item) => (
-                    <span className="skill-tag" key={item}>
+                    <span className={styles.skillTag} key={item}>
                       {item}
                     </span>
                   ))}

@@ -1,0 +1,125 @@
+.form {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.twoColumn {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.label {
+  display: block;
+  color: var(--text2);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.field {
+  width: 100%;
+  margin-top: 0.5rem;
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  outline: none;
+  background: var(--bg3);
+  color: var(--text);
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.field:focus {
+  border-color: rgba(219, 196, 119, 0.32);
+  box-shadow: 0 0 0 4px rgba(219, 196, 119, 0.08);
+}
+
+.messageField {
+  min-height: 10rem;
+  resize: vertical;
+  line-height: 1.75;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.submitButton {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid var(--maroon);
+  border-radius: 8px;
+  background: var(--maroon);
+  color: var(--bg);
+  cursor: pointer;
+  font-weight: 700;
+  padding: 0.75rem 1.25rem;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.submitButton:hover,
+.submitButton:focus-visible {
+  transform: translateY(-1px);
+}
+
+.submitButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.68;
+}
+
+.submitPulse {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: currentColor;
+  animation: submit-pulse 900ms ease-in-out infinite;
+}
+
+.status {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.success {
+  color: var(--gold);
+}
+
+.error {
+  color: var(--maroon);
+}
+
+@keyframes submit-pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 640px) {
+  .twoColumn {
+    grid-template-columns: 1fr;
+  }
+
+  .actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}

@@ -7,6 +7,7 @@ import {
   useRef,
   useState,
 } from "react";
+import styles from "./reveal.module.css";
 
 type RevealProps = {
   children: ReactNode;
@@ -49,9 +50,26 @@ export function Reveal({
     return () => observer.disconnect();
   }, []);
 
+  const variantClassName =
+    variant === "slide-left"
+      ? styles.slideLeft
+      : variant === "slide-right"
+        ? styles.slideRight
+        : variant === "scale"
+          ? styles.scale
+          : "";
+
   return (
     <div
-      className={`reveal reveal-${variant} ${isVisible ? "is-visible" : ""} ${className}`}
+      className={[
+        styles.reveal,
+        variantClassName,
+        isVisible ? styles.visible : "",
+        className,
+      ]
+        .filter(Boolean)
+        .join(" ")}
+      data-visible={isVisible ? "true" : "false"}
       ref={ref}
       style={{ "--reveal-delay": `${delay}ms` } as CSSProperties}
     >

@@ -1,0 +1,119 @@
+.contactDesk {
+  min-height: 100vh;
+  background: var(--bg1);
+  padding-top: 5rem;
+}
+
+.contactPageGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+  gap: 3rem;
+  align-items: start;
+}
+
+.contactBrief {
+  margin-bottom: 2rem;
+}
+
+.contactBrief h1 {
+  max-width: 46rem;
+  margin: 0.45rem 0 0;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.contactBrief span {
+  display: block;
+  max-width: 42rem;
+  margin-top: 1rem;
+  color: var(--text2);
+  line-height: 1.7;
+}
+
+.contactPanel {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg2);
+  padding: 1.5rem;
+}
+
+.contactMetaGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.6rem;
+  border-top: 1px solid var(--border);
+  padding-top: 1.25rem;
+}
+
+.contactMetaGrid p,
+.contactLinks p {
+  margin: 0;
+  color: var(--text3);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.contactMetaGrid a,
+.contactMetaGrid strong {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--gold);
+  overflow-wrap: anywhere;
+}
+
+.contactLinks {
+  margin-top: 1.2rem;
+}
+
+.contactLinks div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 0.75rem;
+}
+
+.actionButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text);
+  padding: 0.75rem 1rem;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease;
+}
+
+.actionButton:hover,
+.actionButton:focus-visible {
+  border-color: rgba(219, 196, 119, 0.28);
+  background: var(--bg3);
+}
+
+@media (max-width: 768px) {
+  .contactPageGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .contactBrief h1 {
+    font-size: 2.55rem;
+  }
+
+  .contactMetaGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .contactBrief h1 {
+    font-size: 1.7rem;
+    line-height: 1.05;
+  }
+}

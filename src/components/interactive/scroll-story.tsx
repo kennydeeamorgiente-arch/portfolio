@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import styles from "./scroll-story.module.css";
 
 export function ScrollStory() {
   const [progress, setProgress] = useState(0);
@@ -22,5 +23,11 @@ export function ScrollStory() {
     };
   }, []);
 
-  return <div id="progress-bar" aria-hidden="true" style={{ width: `${progress}%` }} />;
+  return (
+    <div
+      aria-hidden="true"
+      className={styles.progressBar}
+      style={{ width: `${progress}%` }}
+    />
+  );
 }

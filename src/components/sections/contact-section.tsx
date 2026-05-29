@@ -1,26 +1,27 @@
 import { ArrowRight, Download, Mail, MapPin } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
 import { profile, socialLinks } from "@/content/site";
+import styles from "./contact-section.module.css";
 
 export function ContactSection() {
   const resumeLink = socialLinks.find((link) => link.label === "Resume");
 
   return (
-    <section className="contact-section" id="contact">
+    <section className={styles.contactSection} id="contact">
       <div className="section-inner section-pad">
         <Reveal>
-          <div className="contact-content">
+          <div className={styles.contactContent}>
             <p className="eyebrow">Contact</p>
-            <h2 className="contact-title">
+            <h2 className={styles.contactTitle}>
               Let&apos;s Work
               <br />
               Together
             </h2>
-            <p>
+            <p className={styles.contactSummary}>
               Open for opportunities and freelance work. Reach out and
               let&apos;s build something great.
             </p>
-            <div className="contact-actions">
+            <div className={styles.contactActions}>
               <a className="btn-primary" href={`mailto:${profile.email}`}>
                 <span>Send Message</span>
                 <ArrowRight aria-hidden="true" size={17} strokeWidth={2.2} />
@@ -32,7 +33,7 @@ export function ContactSection() {
                 </a>
               ) : null}
             </div>
-            <div className="contact-details">
+            <div className={styles.contactDetails}>
               <span>
                 <Mail aria-hidden="true" size={14} strokeWidth={1.7} />
                 {profile.email}

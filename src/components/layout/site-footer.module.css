@@ -1,0 +1,38 @@
+.siteFooter {
+  border-top: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.footerInner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem clamp(1.5rem, 6vw, 5rem);
+  text-align: center;
+}
+
+.footerBrand {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.footerBrand span {
+  width: 12px;
+  height: 12px;
+  flex: 0 0 auto;
+  background: var(--maroon);
+  transform: rotate(45deg);
+}
+
+.footerBrand strong,
+.footerInner p {
+  margin: 0;
+  color: var(--text3);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+}

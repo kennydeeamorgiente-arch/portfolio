@@ -1,9 +1,10 @@
 import { Reveal } from "@/components/ui/reveal";
 import { experiences } from "@/content/experience";
+import styles from "./experience-section.module.css";
 
 export function ExperienceSection() {
   return (
-    <section className="experience-section" id="experience">
+    <section className={styles.experienceSection} id="experience">
       <div className="section-inner section-pad">
         <Reveal>
           <div className="section-header">
@@ -21,15 +22,15 @@ export function ExperienceSection() {
           </div>
         </Reveal>
 
-        <div className="experience-list">
+        <div className={styles.experienceList}>
           {experiences.map((item, index) => (
             <Reveal delay={index * 120} key={`${item.company}-${item.role}`}>
-              <article className="experience-record">
-                <div className="experience-meta">
+              <article className={styles.experienceRecord}>
+                <div className={styles.meta}>
                   <span>{item.period}</span>
                   <strong>{item.role}</strong>
                 </div>
-                <div className="experience-body">
+                <div className={styles.body}>
                   <p>{item.company}</p>
                   <h3>{item.summary}</h3>
                   <ul>

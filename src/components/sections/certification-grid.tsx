@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight, CheckCircle2, Trophy } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
 import { getCertifications } from "@/lib/portfolio-data";
+import styles from "./certification-grid.module.css";
 
 type CertificationGridProps = {
   limit?: number;
@@ -19,6 +20,17 @@ const thumbBars = [
   ["short", "default", "gold short", "dark"],
 ];
 
+function getThumbBarClassName(bar: string) {
+  return [
+    styles.thumbBar,
+    bar.includes("gold") ? styles.gold : "",
+    bar.includes("dark") ? styles.dark : "",
+    bar.includes("short") ? styles.short : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+}
+
 export async function CertificationGrid({ limit }: CertificationGridProps) {
   const certifications = await getCertifications();
   const visibleCertifications = limit
@@ -26,7 +38,7 @@ export async function CertificationGrid({ limit }: CertificationGridProps) {
     : certifications;
 
   return (
-    <section className="certifications-section" id="certifications">
+    <section className={styles.certificationsSection} id="certifications">
       <div className="section-inner section-pad">
         <div className="section-header split">
           <Reveal>
@@ -49,17 +61,20 @@ export async function CertificationGrid({ limit }: CertificationGridProps) {
           ) : null}
         </div>
 
-        <div className="cert-layout">
-          <div className="cert-list" aria-label="Certificate cards">
+        <div className={styles.certLayout}>
+          <div className={styles.certList} aria-label="Certificate cards">
             {visibleCertifications.map((certification, index) => (
               <Reveal delay={index * 80} key={certification.credentialId}>
-                <article className="cert-card">
-                  <div className="cert-thumb" aria-hidden="true">
+                <article className={styles.certCard}>
+                  <div className={styles.certThumb} aria-hidden="true">
                     {thumbBars[index % thumbBars.length].map((bar, barIndex) => (
-                      <span className={bar} key={`${bar}-${barIndex}`} />
+                      <span
+                        className={getThumbBarClassName(bar)}
+                        key={`${bar}-${barIndex}`}
+                      />
                     ))}
                   </div>
-                  <div className="cert-copy">
+                  <div className={styles.certCopy}>
                     <CheckCircle2 aria-hidden="true" size={14} />
                     <small>{certification.credentialId}</small>
                     <p>{certification.issuer}</p>
@@ -79,16 +94,16 @@ export async function CertificationGrid({ limit }: CertificationGridProps) {
           </div>
 
           <Reveal delay={160} variant="slide-left">
-            <aside className="wins-card" aria-label="Additional achievements">
-              <div className="wins-head">
+            <aside className={styles.winsCard} aria-label="Additional achievements">
+              <div className={styles.winsHead}>
                 <span aria-hidden="true">
                   <Trophy size={14} strokeWidth={1.8} />
                 </span>
                 <strong>Other Wins</strong>
               </div>
-              <div className="wins-list">
+              <div className={styles.winsList}>
                 {achievementNotes.map((achievement, index) => (
-                  <div className="wins-item" key={achievement}>
+                  <div className={styles.winsItem} key={achievement}>
                     <span>{String(index + 1).padStart(2, "0")}</span>
                     <p>{achievement}</p>
                   </div>

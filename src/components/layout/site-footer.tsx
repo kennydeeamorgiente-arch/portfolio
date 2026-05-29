@@ -1,10 +1,11 @@
 import { profile } from "@/content/site";
+import styles from "./site-footer.module.css";
 
 export function SiteFooter() {
   return (
-    <footer className="site-footer">
-      <div className="footer-inner">
-        <div className="footer-brand">
+    <footer className={styles.siteFooter}>
+      <div className={styles.footerInner}>
+        <div className={styles.footerBrand}>
           <span aria-hidden="true" />
           <strong>{profile.name}</strong>
         </div>

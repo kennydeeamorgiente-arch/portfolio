@@ -12,6 +12,7 @@ import {
 import { certifications } from "@/content/certifications";
 import { projects } from "@/content/projects";
 import { profile, socialLinks } from "@/content/site";
+import styles from "./hero-section.module.css";
 
 const socialIcons = {
   Facebook: FacebookIcon,
@@ -25,36 +26,36 @@ export function HeroSection() {
   const socialProfiles = socialLinks.filter((link) => link.label !== "Resume");
 
   return (
-    <section className="hero-section" id="hero">
-      <div className="hero-grid-bg" aria-hidden="true" />
-      <div className="hero-glow" aria-hidden="true" />
+    <section className={styles.heroSection} id="hero">
+      <div className={styles.gridBg} aria-hidden="true" />
+      <div className={styles.glow} aria-hidden="true" />
 
-      <div className="section-inner hero-inner">
-        <div className="hero-grid">
-          <div className="hero-copy">
+      <div className={`section-inner ${styles.heroInner}`}>
+        <div className={styles.heroGrid}>
+          <div className={styles.heroCopy}>
             <Reveal>
-              <p className="availability-badge">
+              <p className={styles.availabilityBadge}>
                 <span aria-hidden="true" />
                 {profile.availableFor}
               </p>
             </Reveal>
 
             <Reveal delay={80}>
-              <p className="role-tag">
+              <p className={styles.roleTag}>
                 <span aria-hidden="true" />
                 {profile.title}
               </p>
-              <h1 className="hero-name">
+              <h1 className={styles.heroName}>
                 <span>Kenny Dee</span>
                 <span>Amorgiente</span>
               </h1>
             </Reveal>
 
             <Reveal delay={160}>
-              <p className="hero-bio">{profile.summary}</p>
+              <p className={styles.heroBio}>{profile.summary}</p>
             </Reveal>
 
-            <Reveal className="social-row" delay={220}>
+            <Reveal className={styles.socialRow} delay={220}>
               {socialProfiles.map((link) => {
                 const Icon =
                   socialIcons[link.label as keyof typeof socialIcons] ??
@@ -64,7 +65,7 @@ export function HeroSection() {
                 return (
                   <a
                     aria-label={link.label}
-                    className="social-icon"
+                    className={styles.socialIcon}
                     href={link.href}
                     key={link.label}
                     rel={isExternal ? "noreferrer noopener" : undefined}
@@ -77,7 +78,7 @@ export function HeroSection() {
               })}
             </Reveal>
 
-            <Reveal className="cta-row" delay={280}>
+            <Reveal className={styles.ctaRow} delay={280}>
               <Link className="btn-primary" href="#projects">
                 <span>Projects</span>
                 <ArrowRight aria-hidden="true" size={17} strokeWidth={2.2} />
@@ -94,20 +95,20 @@ export function HeroSection() {
             </Reveal>
           </div>
 
-          <Reveal className="hero-card-wrap" delay={180} variant="slide-left">
-            <aside className="hero-profile-card" aria-label="Profile card">
-              <div className="hero-card-accent" aria-hidden="true" />
-              <div className="hero-photo-area">
+          <Reveal className={styles.cardWrap} delay={180} variant="slide-left">
+            <aside className={styles.profileCard} aria-label="Profile card">
+              <div className={styles.cardAccent} aria-hidden="true" />
+              <div className={styles.photoArea}>
                 <Image
                   src={profile.avatar}
                   alt={`${profile.name} profile image`}
                   width={760}
                   height={900}
-                  className="hero-profile-image"
+                  className={styles.profileImage}
                   priority
                 />
               </div>
-              <div className="hero-card-info">
+              <div className={styles.cardInfo}>
                 <p>Portfolio</p>
                 <strong>{profile.name}</strong>
                 <span>
@@ -123,9 +124,9 @@ export function HeroSection() {
           </Reveal>
         </div>
 
-        <div className="stats-row" aria-label="Portfolio statistics">
+        <div className={styles.statsRow} aria-label="Portfolio statistics">
           <Reveal variant="scale">
-            <div className="stat-item">
+            <div className={styles.statItem}>
               <strong>
                 <StatCounter value={projects.length} />
               </strong>
@@ -133,7 +134,7 @@ export function HeroSection() {
             </div>
           </Reveal>
           <Reveal delay={80} variant="scale">
-            <div className="stat-item">
+            <div className={styles.statItem}>
               <strong>
                 <StatCounter value={certifications.length} />
               </strong>
@@ -141,7 +142,7 @@ export function HeroSection() {
             </div>
           </Reveal>
           <Reveal delay={160} variant="scale">
-            <div className="stat-item">
+            <div className={styles.statItem}>
               <b>React / Node</b>
               <span>Primary Stack</span>
             </div>

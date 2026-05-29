@@ -1,0 +1,118 @@
+.archiveFile {
+  display: grid;
+  grid-template-columns: minmax(14rem, 0.38fr) minmax(0, 1fr);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg2);
+  transition:
+    border-color 220ms ease,
+    transform 220ms ease;
+}
+
+.archiveFile:hover,
+.archiveFile:focus-visible {
+  border-color: rgba(219, 196, 119, 0.24);
+  transform: translateY(-3px);
+}
+
+.archiveFile:hover .stackChip,
+.archiveFile:focus-visible .stackChip {
+  border-color: rgba(219, 196, 119, 0.28);
+  color: var(--text);
+}
+
+.archiveThumb {
+  overflow: hidden;
+  background: var(--bg3);
+}
+
+.archiveImage {
+  width: 100%;
+  height: 100%;
+  min-height: 15rem;
+  object-fit: cover;
+}
+
+.archiveCopy {
+  display: grid;
+  align-content: center;
+  gap: 0.85rem;
+  padding: 1.2rem;
+}
+
+.archiveMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.archiveMeta span {
+  width: fit-content;
+  border: 1px solid rgba(219, 196, 119, 0.24);
+  border-radius: 100px;
+  background: var(--gold-dim);
+  color: var(--gold);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  padding: 0.35rem 0.62rem;
+  text-transform: uppercase;
+}
+
+.archiveCopy h3 {
+  margin: 0;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.archiveCopy p {
+  margin: 0;
+  color: var(--text2);
+  line-height: 1.7;
+}
+
+.archiveStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.stackChip {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border2);
+  border-radius: 100px;
+  color: var(--text2);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  line-height: 1.2;
+  padding: 0.25rem 0.75rem;
+  transition:
+    border-color 220ms ease,
+    color 220ms ease;
+}
+
+.caseProgress {
+  display: grid;
+  grid-template-columns: 1fr 0.72fr 0.48fr;
+  gap: 0.45rem;
+}
+
+.caseProgress span {
+  height: 0.24rem;
+  border-radius: 100px;
+  background: linear-gradient(90deg, var(--maroon), var(--gold));
+}
+
+@media (max-width: 768px) {
+  .archiveFile {
+    grid-template-columns: 1fr;
+  }
+
+  .archiveCopy h3 {
+    font-size: 1.2rem;
+  }
+}

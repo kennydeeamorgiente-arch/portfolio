@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ProjectCard } from "@/components/ui/project-card";
 import { Reveal } from "@/components/ui/reveal";
 import { getProjects } from "@/lib/portfolio-data";
+import styles from "./projects-page.module.css";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -15,10 +16,10 @@ export default async function ProjectsPage() {
   const projects = await getProjects();
 
   return (
-    <main className="archive-page">
-      <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8">
+    <main className={styles.archivePage}>
+      <div className={styles.archiveShell}>
         <Reveal>
-          <div className="archive-heading">
+          <div className={styles.archiveHeading}>
             <p>Selected work</p>
             <h1>Project archive with proof trails</h1>
             <span>
@@ -27,7 +28,7 @@ export default async function ProjectsPage() {
             </span>
           </div>
         </Reveal>
-        <div className="archive-grid">
+        <div className={styles.archiveGrid}>
           {projects.map((project, index) => (
             <Reveal delay={index * 90} key={project.slug} variant="scale">
               <ProjectCard project={project} />

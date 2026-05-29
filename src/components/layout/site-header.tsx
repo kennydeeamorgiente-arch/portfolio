@@ -4,6 +4,7 @@ import Link from "next/link";
 import { X } from "lucide-react";
 import { useState } from "react";
 import { navigation, profile } from "@/content/site";
+import styles from "./site-header.module.css";
 
 export function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,17 +14,17 @@ export function SiteHeader() {
   }
 
   return (
-    <header className="site-header">
-      <nav className="site-nav" aria-label="Primary navigation">
-        <Link className="brand-mark" href="/#hero" onClick={closeMenu}>
+    <header className={styles.siteHeader}>
+      <nav className={styles.siteNav} aria-label="Primary navigation">
+        <Link className={styles.brandMark} href="/#hero" onClick={closeMenu}>
           <span aria-hidden="true" />
           <strong>{profile.name}</strong>
         </Link>
 
-        <div className="nav-cluster" data-open={isOpen}>
+        <div className={styles.navCluster} data-open={isOpen}>
           <button
             aria-label="Close navigation menu"
-            className="mobile-menu-close"
+            className={styles.mobileMenuClose}
             onClick={closeMenu}
             type="button"
           >
@@ -31,7 +32,7 @@ export function SiteHeader() {
           </button>
           {navigation.map((item) => (
             <Link
-              className="nav-link"
+              className={styles.navLink}
               href={item.href}
               key={item.href}
               onClick={closeMenu}
@@ -44,7 +45,7 @@ export function SiteHeader() {
         <button
           aria-expanded={isOpen}
           aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-          className="mobile-menu-button"
+          className={styles.mobileMenuButton}
           onClick={() => setIsOpen((current) => !current)}
           type="button"
         >

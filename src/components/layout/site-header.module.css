@@ -1,0 +1,144 @@
+.siteHeader {
+  position: fixed;
+  top: 2px;
+  right: 0;
+  left: 0;
+  z-index: 900;
+  border-bottom: 1px solid var(--border);
+  background: rgba(7, 8, 6, 0.9);
+  backdrop-filter: blur(20px);
+}
+
+.siteNav {
+  display: flex;
+  min-height: 64px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 clamp(1.5rem, 5vw, 4rem);
+}
+
+.brandMark {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brandMark span {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+  background: var(--maroon);
+  transform: rotate(45deg);
+}
+
+.brandMark strong {
+  overflow: hidden;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.navCluster {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navLink {
+  color: var(--text2);
+  font-size: 0.82rem;
+  line-height: 1;
+  transition: color 200ms ease;
+}
+
+.navLink:hover,
+.navLink:focus-visible {
+  color: var(--gold);
+}
+
+.mobileMenuButton,
+.mobileMenuClose {
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.mobileMenuButton {
+  display: none;
+  width: 42px;
+  height: 42px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.mobileMenuButton span {
+  width: 22px;
+  height: 1.5px;
+  background: currentColor;
+}
+
+.mobileMenuClose {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .siteNav {
+    min-height: 62px;
+  }
+
+  .navCluster {
+    position: fixed;
+    inset: 0;
+    z-index: 800;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    background: var(--bg1);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-0.5rem);
+    transition:
+      opacity 220ms ease,
+      transform 220ms ease;
+  }
+
+  .navCluster[data-open="true"] {
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+  }
+
+  .navLink {
+    color: var(--text);
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  .mobileMenuButton {
+    display: flex;
+  }
+
+  .mobileMenuClose {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .brandMark strong {
+    max-width: 15rem;
+  }
+}
