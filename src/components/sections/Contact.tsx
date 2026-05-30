@@ -27,17 +27,17 @@ export function Contact() {
       />
       <div className="relative z-10 mx-auto max-w-7xl">
         <motion.div
-          className="grid gap-8 rounded-[1.5rem] border border-bone/10 bg-crimson p-6 sm:p-8 md:grid-cols-[1fr_auto] md:items-end"
+          className="grid min-w-0 gap-8 overflow-hidden rounded-[1.5rem] border border-bone/10 bg-crimson p-6 sm:p-8 md:grid-cols-[1fr_auto] md:items-end"
           initial={{ opacity: 0, y: 42 }}
           transition={{ duration: 0.78, ease }}
           viewport={{ once: true, margin: "-100px" }}
           whileInView={{ opacity: 1, y: 0 }}
         >
-          <div>
+          <div className="min-w-0">
             <p className="mb-5 text-xs font-semibold uppercase tracking-[0.32em] text-bone/70">
               Contact
             </p>
-            <h2 className="max-w-4xl text-4xl font-semibold uppercase leading-[0.96] tracking-[-0.055em] text-bone sm:text-5xl md:text-6xl">
+            <h2 className="max-w-4xl break-words text-3xl font-semibold uppercase leading-[1.02] tracking-normal text-bone sm:text-5xl sm:leading-[0.98] md:text-6xl">
               Hire a web developer who can think through the workflow.
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-7 text-bone/78">
@@ -48,11 +48,13 @@ export function Contact() {
           </div>
 
           <MagneticLink
-            className="inline-flex min-h-12 w-max items-center gap-3 rounded-full bg-bone px-5 text-sm font-semibold uppercase tracking-[0.14em] text-crimson"
+            className="inline-flex min-h-12 w-full min-w-0 max-w-full items-center justify-between gap-3 rounded-full bg-bone px-4 text-[0.72rem] font-semibold normal-case tracking-normal text-crimson sm:w-fit sm:px-5 sm:text-sm sm:uppercase sm:tracking-[0.14em] md:justify-center"
             href={`mailto:${profile.email}`}
           >
-            {profile.email}
-            <Mail aria-hidden="true" size={18} />
+            <span className="min-w-0 break-words leading-5 [overflow-wrap:anywhere] sm:break-normal">
+              {profile.email}
+            </span>
+            <Mail aria-hidden="true" className="shrink-0" size={18} />
           </MagneticLink>
         </motion.div>
 
