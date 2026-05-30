@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 const navItems = [
   { id: "hero", label: "Intro" },
   { id: "tech-stack", label: "Stack" },
-  { id: "projects", label: "Cases" },
+  { id: "projects", label: "Projects" },
   { id: "education", label: "Education" },
   { id: "certifications", label: "Certs" },
   { id: "contact", label: "Contact" },
@@ -17,29 +17,46 @@ export function FloatingNav() {
   const [activeId, setActiveId] = useState("hero");
 
   useEffect(() => {
-    const sections = navItems
-      .map((item) => document.getElementById(item.id))
-      .filter(Boolean) as HTMLElement[];
+    let frame = 0;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const activeEntry = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    function updateActiveSection() {
+      const trackingLine = window.scrollY + window.innerHeight * 0.34;
+      let currentId = navItems[0].id;
 
-        if (activeEntry?.target.id) {
-          setActiveId(activeEntry.target.id);
+      for (const item of navItems) {
+        const section = document.getElementById(item.id);
+
+        if (!section) {
+          continue;
         }
-      },
-      {
-        rootMargin: "-38% 0px -44% 0px",
-        threshold: [0.18, 0.4, 0.65],
-      },
-    );
 
-    sections.forEach((section) => observer.observe(section));
+        const sectionTop =
+          section.getBoundingClientRect().top + window.scrollY - 80;
 
-    return () => observer.disconnect();
+        if (sectionTop <= trackingLine) {
+          currentId = item.id;
+        }
+      }
+
+      setActiveId((previousId) =>
+        previousId === currentId ? previousId : currentId,
+      );
+    }
+
+    function handleScroll() {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(updateActiveSection);
+    }
+
+    updateActiveSection();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
+
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
   }, []);
 
   function handleClick(event: MouseEvent<HTMLAnchorElement>, id: string) {
