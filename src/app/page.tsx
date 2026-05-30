@@ -1,23 +1,23 @@
-import { CertificationGrid } from "@/components/sections/certification-grid";
-import { ContactSection } from "@/components/sections/contact-section";
-import { EducationSection } from "@/components/sections/education-section";
-import { ExperienceSection } from "@/components/sections/experience-section";
-import { FeaturedProjects } from "@/components/sections/featured-projects";
-import { HeroSection } from "@/components/sections/hero-section";
-import { SkillsSection } from "@/components/sections/skills-section";
-
-export const revalidate = 60;
+import { Contact } from "@/components/sections/Contact";
+import { Certifications } from "@/components/sections/Certifications";
+import { Education } from "@/components/sections/Education";
+import { Hero } from "@/components/sections/Hero";
+import { Projects } from "@/components/sections/Projects";
+import { TechStack } from "@/components/sections/TechStack";
+import { BackToTopButton } from "@/components/ui/BackToTopButton";
+import { FloatingNav } from "@/components/ui/FloatingNav";
 
 export default function Home() {
   return (
     <main>
-      <HeroSection />
-      <FeaturedProjects />
-      <SkillsSection />
-      <ExperienceSection />
-      <EducationSection />
-      <CertificationGrid limit={3} />
-      <ContactSection />
+      <FloatingNav />
+      <Hero />
+      <TechStack />
+      <Projects />
+      <Education />
+      <Certifications />
+      <Contact />
+      <BackToTopButton />
     </main>
   );
 }

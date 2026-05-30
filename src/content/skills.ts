@@ -11,14 +11,14 @@ export const skillGroups = [
     signal: "API",
     description: "Connects frontend screens to backend workflows, APIs, access control, and integrations.",
     barWidth: 82,
-    items: ["Node.js", "PHP", "CodeIgniter4", "REST APIs", "API Integration", "OAuth 2.0"],
+    items: ["Node.js", "PHP", "CodeIgniter 4", "REST APIs", "API Integration", "OAuth 2.0"],
   },
   {
     title: "Data and delivery",
     signal: "DB",
     description: "Structures records, supports reporting, and keeps project data usable across systems.",
     barWidth: 79,
-    items: ["MySQL", "PostgreSQL", "Vector Embeddings", "Git", "Supabase", "CSV Export"],
+    items: ["MySQL", "PostgreSQL", "Vector Embeddings", "Git", "Supabase Platform", "CSV Export"],
   },
   {
     title: "Quality workflow",

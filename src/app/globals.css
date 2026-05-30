@@ -1,4 +1,32 @@
-@import url("https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap");
-@import "../styles/variables.css";
-@import "../styles/reset.css";
-@import "../styles/shared.css";
+@import "tailwindcss";
+
+@theme {
+  --color-bone: #dcdacf;
+  --color-sand: #cebcab;
+  --color-charcoal: #38292b;
+  --color-crimson: #972c1f;
+  --color-ochre: #cb8530;
+  --font-display: Geist, "Inter Tight", Inter, system-ui, sans-serif;
+  --font-body: Geist, Inter, system-ui, sans-serif;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}

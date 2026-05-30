@@ -1,18 +1,5 @@
-import type { Metadata } from "next";
-import { CertificationGrid } from "@/components/sections/certification-grid";
-
-export const metadata: Metadata = {
-  title: "Certifications",
-  description:
-    "Professional certifications with issuers, dates, credential details, and proof images.",
-};
-
-export const revalidate = 60;
+import { redirect } from "next/navigation";
 
 export default function CertificationsPage() {
-  return (
-    <main>
-      <CertificationGrid />
-    </main>
-  );
+  redirect("/#contact");
 }

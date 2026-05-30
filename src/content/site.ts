@@ -13,10 +13,10 @@ export const profile = {
 };
 
 export const navigation: NavigationItem[] = [
-  { label: "Skills", href: "/#skills" },
-  { label: "Experience", href: "/#experience" },
-  { label: "Education", href: "/#education" },
+  { label: "Home", href: "/#hero" },
+  { label: "Stack", href: "/#tech-stack" },
   { label: "Projects", href: "/#projects" },
+  { label: "Education", href: "/#education" },
   { label: "Certifications", href: "/#certifications" },
   { label: "Contact", href: "/#contact" },
 ];
