@@ -7,12 +7,16 @@ import {
   Database,
   FileCode2,
   GitBranch,
+  GitPullRequest,
   Layers,
   Palette,
   PencilRuler,
   Server,
+  ServerCog,
   Sparkles,
   Smartphone,
+  Triangle,
+  Zap,
 } from "lucide-react";
 import styles from "./TechStack.module.css";
 
@@ -33,41 +37,92 @@ const categories = [
     summary:
       "Interfaces, dashboards, responsive layouts, component systems, and interaction-heavy screens.",
     icon: Code2,
-    skills: ["Next.js", "React", "React Native", "TypeScript", "Tailwind CSS"],
+    skills: [
+      "React",
+      "JavaScript",
+      "TypeScript",
+      "jQuery",
+      "AJAX",
+      "HTML5",
+      "CSS3",
+      "Bootstrap",
+      "Flutter",
+      "Next.js",
+      "React Native",
+      "Tailwind CSS",
+      "Framer Motion",
+      "GSAP",
+    ],
   },
   {
     title: "Backend",
     summary:
       "Application logic, authentication, API routes, role-based workflows, and system integrations.",
     icon: Server,
-    skills: ["Node.js", "CodeIgniter", "PHP", "REST APIs", "Gmail OAuth"],
+    skills: ["Node.js", "PHP", "CodeIgniter 4", "REST APIs", "API Integration"],
   },
   {
     title: "Database",
     summary:
       "Relational records, reporting data, attendance logs, event approvals, and operational tables.",
     icon: Database,
-    skills: ["MySQL", "PostgreSQL", "SQL", "Migrations", "Data Modeling"],
+    skills: ["MySQL", "PostgreSQL", "Vector Embeddings"],
   },
   {
-    title: "Tools",
+    title: "Tools & Concepts",
     summary:
-      "Version control, UI planning, content/design tools, CMS basics, and AI-assisted development workflows.",
+      "Version control, deployment, authentication flows, design planning, networking basics, and CMS work.",
     icon: PencilRuler,
-    skills: ["Git", "Figma", "Canva", "WordPress basics", "AI Proficiency"],
+    skills: [
+      "Git",
+      "GitHub",
+      "Vercel",
+      "XAMPP",
+      "OAuth 2.0",
+      "Gmail API",
+      "System Design",
+      "Fundamentals of Networking",
+      "Figma",
+      "WordPress",
+    ],
+  },
+  {
+    title: "AI Tools",
+    summary:
+      "Prompt engineering, workflow automation, debugging support, and AI-assisted development practices.",
+    icon: Sparkles,
+    skills: [
+      "Codex",
+      "ChatGPT",
+      "Prompt Engineering",
+      "Workflow Automation",
+    ],
   },
 ];
 
 const highlights = [
+  { label: "React", icon: Code2 },
   { label: "Next.js", icon: Layers },
+  { label: "JavaScript", icon: Braces },
+  { label: "TypeScript", icon: Code2 },
+  { label: "Flutter", icon: Smartphone },
+  { label: "Framer Motion", icon: Zap },
+  { label: "GSAP", icon: Sparkles },
   { label: "Node.js", icon: Server },
-  { label: "CodeIgniter", icon: FileCode2 },
+  { label: "CodeIgniter 4", icon: FileCode2 },
   { label: "MySQL", icon: Database },
-  { label: "React Native", icon: Smartphone },
-  { label: "REST / AJAX", icon: Braces },
+  { label: "PostgreSQL", icon: Database },
+  { label: "REST APIs", icon: Braces },
+  { label: "Vector Embeddings", icon: Database },
   { label: "Git", icon: GitBranch },
-  { label: "Figma / Canva", icon: Palette },
-  { label: "AI Proficiency", icon: Sparkles },
+  { label: "GitHub", icon: GitPullRequest },
+  { label: "Vercel", icon: Triangle },
+  { label: "XAMPP", icon: ServerCog },
+  { label: "Figma", icon: Palette },
+  { label: "Gmail API", icon: Server },
+  { label: "OAuth 2.0", icon: GitPullRequest },
+  { label: "Codex", icon: Sparkles },
+  { label: "ChatGPT", icon: Sparkles },
 ];
 
 const marqueeItems = [...highlights, ...highlights];
@@ -135,7 +190,7 @@ export function TechStack() {
           </div>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
           {categories.map((category, index) => {
             const Icon = category.icon;
 
